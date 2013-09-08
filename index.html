@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+      <style> body { padding-top: 60px; } </style>
+	    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class='container'>
+          <a class="brand">Mormors råd</a>
+          <input type="text" id='searchValue' data-provide="typeahead" data-items="4" data-source=''>
+          <button type="submit" class="btn" id='search'>Søg</button>
+        </div>
+      </div>
+    </div>
+		<div class='container'>
+		
+      
+      <div id="initialReceipes" class='row'>
+        
+        <div class='span4'>
+          <h2>Opskrifter og Madtips</h2>              
+          <img src="img/køkken.jpg"/> 
+          <a data-v1="opskrifter" data-v2="madtip" href="#" class='searchByCategory hover opskrifter'></a>  
+        </div>
+
+        <div class='span4'>
+          <h2>Husholdnings tips & andet godt at vide</h2>
+          <img src="img/karm.jpg"/>
+          <a data-v1="husholdning" data-v2="andet" href="#" class='searchByCategory hover andet'></a>   
+        </div>
+
+        <div class='span4'>
+          <h2>Havenråd</h2>
+          <img src="img/haven.jpg"/>
+          <a data-v1="haven" data-v2="haven" href="#" class='searchByCategory hover haven'></a>   
+        </div>
+      
+   </div>
+
+<!-- templates begins -->
+
+			<div class="row" id="receipes">
+				{{#receipes}}
+					<div class='span2'>
+            <h2>{{name}}</h2>
+            <a data-id="{{id}}" href="#{{id}}" class='r hover {{category}}'>
+                <img class="low" src="{{thumb}}"/>
+            </a>
+				  </div>				
+				{{/receipes}}
+			</div>
+
+<!-- templates end -->	
+
+
+            <!-- Modal -->
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">{{name}}</h3>
+              </div>
+              <div class="modal-body">
+                <img src="{{.}}"  />
+              </div>
+            </div>	
+			
+		</div>
+
+	    <script src="js/jquery-1.8.3.min.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
+    	<script src="js/mustache.js"></script>
+    	<script src="js/db.js"></script>
+    	<script src="js/script.js"></script>
+	</body>
+</html>
