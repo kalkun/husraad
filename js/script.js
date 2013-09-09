@@ -84,7 +84,6 @@ function searchByCategory(v1, v2)
 }
 $(".searchByCategory").click(function(){ searchByCategory($(this).attr("data-v1"),$(this).attr("data-v2")); });
 
-
 $(".r").bind("click",function(){
 	var id = $(this).attr("data-id");
 	$.each(db.receipes, function(key, receipe) {
@@ -101,3 +100,8 @@ $(".r").bind("click",function(){
 		}
 	});
 });
+
+$(".brand").on('click', function()
+{
+	window.location.assign("index.html");
+})
